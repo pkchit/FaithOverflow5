@@ -64,7 +64,11 @@ public class signupActivity extends AppCompatActivity {
                         recreate();
                     }
                 })
+                .setCancelable(false)
                 .show();
+        Intent m = new Intent(signupActivity.this, getClass());
+        finish();
+        startActivity(m);
 
     }
 }
