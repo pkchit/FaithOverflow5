@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Faith Overflow</string>
     <string name="action_settings">Settings</string>
+    <string-array name="leapOfFaith">
+        <item>HINDUISM</item>
+        <item>MUSLIM</item>
+        <item>CHRISTIANITY</item>
+        <item>SIKHISM</item>
+        <item>ZOROASTRIANISM</item>
+        <item>BUDDHISM</item>
+        <item>JAINISM</item>
+        <item>SATANISM</item>
+        <item>ATHEISM</item>
+        <item>OTHER..</item>
+    </string-array>
 </resources>

@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class loginActivity extends AppCompatActivity
 {
@@ -30,14 +31,14 @@ public class loginActivity extends AppCompatActivity
 
     public void Login_Click(View v) {
         final ProgressDialog progressDialog = ProgressDialog.show(loginActivity.this, "Please wait...", "Proccessing...", true);
-
         (firebaseAuth.signInWithEmailAndPassword(txtEmailLogin.getText().toString(), txtPwd.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
+                        FirebaseUser u = firebaseAuth.getCurrentUser();
 
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful()&&u.isEmailVerified()) {
                             Toast.makeText(loginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
                             Intent i = new Intent(loginActivity.this, MainActivity.class);
                             i.putExtra("Email", firebaseAuth.getCurrentUser().getEmail());
